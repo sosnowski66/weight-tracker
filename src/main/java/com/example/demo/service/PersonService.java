@@ -40,10 +40,12 @@ public class PersonService {
 
     public List<WeightLog> getUserLogsById(UUID id) {
         List<UUID> ids = new ArrayList<>();
-        ids.add(id);
-          weightDAO.findAllById(ids);
-        return StreamSupport.stream(weightDAO.findAllById(ids).spliterator(), false)
-                .collect(Collectors.toList());
+//        ids.add();
+        Iterable<UUID> iterable = ids;
+//          weightDAO.findAllById(ids.iterator());
+//        return StreamSupport.stream(weightDAO.findAllById(ids).spliterator(), false)
+//                .collect(Collectors.toList());
+        return null;
     }
 
     public void deleteLogByDate(String dateOfLog) {

@@ -6,12 +6,15 @@ import java.util.UUID;
 public class User {
 
     private final UUID id;
-    private final String name;
-    private List<WeightLog> logs;
 
-    public User(UUID id, String name, List<WeightLog> logs) {
+    private String username;
+
+    private String password;
+    private List<WeightLog> logs;
+    public User(UUID id, String username, String password, List<WeightLog> logs) {
         this.id = id;
-        this.name = name;
+        this.username = username;
+        this.password = password;
         this.logs = logs;
     }
 
@@ -19,11 +22,25 @@ public class User {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
+
+    public String getPassword() { return password; }
 
     public List<WeightLog> getLogs() {
         return logs;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setLogs(List<WeightLog> logs) {
+        this.logs = logs;
     }
 }
