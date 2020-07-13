@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.UserDAO;
+import com.example.demo.dao.PersonDAO;
 import com.example.demo.dao.WeightDAO;
-import com.example.demo.model.User;
+import com.example.demo.model.Person;
 import com.example.demo.model.WeightLog;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -10,25 +10,25 @@ import java.util.*;
 
 public class UserServiceImpl implements UserService {
 
-    private UserDAO userDAO;
+    private PersonDAO userDAO;
     private WeightDAO weightDAO;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @Override
-    public void save(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    public void save(Person person) {
+        person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
         List<UUID> ids = new ArrayList<>();
-        ids.add(user.getId());
+        ids.add(person.getId());
 
-        List<WeightLog> logs = weightDAO.findAllByUserId(user.getId());
+        List<WeightLog> logs = weightDAO.findAllByUserId(person.getId());
 
 
-        user.setLogs(List.of(weightDAO.findAllById(ids)));
+//        user.setLogs(List.of(weightDAO.findAllById()));
     }
         
     @Override
-    public User findByUsername(String username) {
+    public Person findByUsername(String username) {
         return userDAO.findByUsername(username);
     }
 }

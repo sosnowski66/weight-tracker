@@ -1,10 +1,10 @@
 package com.example.demo.service;
 
-import com.example.demo.model.User;
+import com.example.demo.model.Person;
 
 public interface UserService {
 
-    void save(User user);
+    void save(Person person);
 
-    User findByUsername(String username);
+    Person findByUsername(String username);
 }

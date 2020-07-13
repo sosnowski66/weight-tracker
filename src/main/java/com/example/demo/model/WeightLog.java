@@ -15,15 +15,4 @@ public class WeightLog {
         this.weight = weight;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
 }
